@@ -5,8 +5,8 @@
 ```shell
 $ npm install -g check-urls
 ```
-```shell
 or
+```shell
 $ yarn global add check-urls
 ```
 
