@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const nopt = require('nopt');
+const chalk = require('chalk');
+const checkUrls = require('../');
+
+const parsed = nopt({}, {}, process.argv, 2);
+
+function usage(errorMessage) {
+  if (errorMessage) {
+    console.log(chalk.red(`Error: ${errorMessage}`));
+  }
+  console.log('Usgae: check-urls <url-file>');
+  process.exit(1);
+}
+
+parsed.argv.remain.length === 0 && usage();
+
+const urlFile = parsed.argv.remain[0];
+
+if (!fs.existsSync(urlFile)) {
+  usage(`${urlFile} does not exist`);
+} else if (!fs.statSync(urlFile).isFile()) {
+  usage(`${urlFile} is not a file`);
+}
+
+const urls = fs.readFileSync(urlFile, 'utf8')
+  .split('\n')
+  .map(line => line.trim())
+  .filter(line => line);
+
+checkUrls(urls);

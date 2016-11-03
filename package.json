@@ -1,0 +1,24 @@
+{
+  "name": "check-urls",
+  "version": "1.0.0",
+  "description": "Check the response code of a list of URLs with electron",
+  "homepage": "https://github.com/mattinsler/check-urls",
+  "bugs": {
+    "url": "https://github.com/mattinsler/check-urls/issues"
+  },
+  "license": "MIT",
+  "author": "Matt Insler <matt.insler@gmail.com>",
+  "repository": "mattinsler/check-urls",
+  "bin": {
+    "check-urls": "bin/check-urls"
+  },
+  "dependencies": {
+    "chalk": "1.1.3",
+    "elegant-spinner": "1.0.1",
+    "figures": "2.0.0",
+    "log-update": "1.0.2",
+    "ms": "0.7.2",
+    "nightmare": "2.8.1",
+    "nopt": "3.0.6"
+  }
+}
